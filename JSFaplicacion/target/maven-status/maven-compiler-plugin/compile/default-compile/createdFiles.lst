@@ -1,0 +1,7 @@
+datos\ProductosDAO.class
+web\ProductoBean.class
+datos\ProductosDAOImp.class
+dominio\Productos.class
+servicios\ProductosServicio.class
+web\ConfiguracionBean.class
+servicios\ProductosServicioImp.class
