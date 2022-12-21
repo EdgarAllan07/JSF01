@@ -17,7 +17,7 @@ import servicios.ProductosServicio;
  *
  * @author Allan
  */
-@Named("productobeam")
+@Named("productobean")
 @RequestScoped
 public class ProductoBean {
     @Inject
