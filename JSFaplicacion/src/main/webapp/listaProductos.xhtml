@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/XHtml.xhtml to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+     <h:head>
+         <title>Lista de productos</title>
+    </h:head>
+    <h:body>
+        <h:form prependId="false">
+            <p:growl id="messages" showDetail="true"/>
+            <p:dataTable value="#{productobean.productos}" var="pro" editable ="true">
+                <f:facet name="header"><!--la cabezar pero no que es un facet-->
+                    <h3 align="center">Lista de productos</h3>
+                </f:facet>
+                
+                <p:column headerText="Id">
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{pro.id_producto}"></h:outputText>
+                        </f:facet>
+                        <f:facet  name="input">
+                            <p:inputText value="#{pro.id_producto}"></p:inputText>
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+                
+                <p:column headerText="Nombre">
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{pro.nombrePro}"></h:outputText>
+                        </f:facet>
+                        <f:facet  name="input">
+                            <p:inputText value="#{pro.nombrePro}"></p:inputText>
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+                
+                 <p:column headerText="Precio">
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{pro.precio}"></h:outputText>
+                        </f:facet>
+                        <f:facet  name="input">
+                            <p:inputText value="#{pro.precio}"></p:inputText>
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+                
+                <p:column headerText="Imagen">
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{pro.imagen}"></h:outputText>
+                        </f:facet>
+                        <f:facet  name="input">
+                            <p:inputText value="#{pro.imagen}"></p:inputText>
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+                
+                <p:column headerText="Descripcion">
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{pro.descripcion}"></h:outputText>
+                        </f:facet>
+                        <f:facet  name="input">
+                            <p:inputText value="#{pro.descripcion}"></p:inputText>
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+                
+                
+                 <f:facet name="footer">
+                    <h:commandButton value="Retornar" action="index" />
+                </f:facet>
+                <p:column headerText="Opciones" style="width: 50px">
+                    <p:rowEditor/>
+                </p:column>
+                <p:ajax event="rowEdit" listener="#{productobean.editListener}"/>
+                
+            </p:dataTable>
+
+        </h:form>
+        
+    </h:body>
+</html>
